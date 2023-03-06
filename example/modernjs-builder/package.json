@@ -1,0 +1,21 @@
+{
+  "name": "modernjs-builder",
+  "private": true,
+  "scripts": {
+    "build": "node builder/builder.mjs build",
+    "dev": "node builder/builder.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@modern-js/builder": "^2.7.0",
+    "@modern-js/builder-rspack-provider": "^2.7.0",
+    "@modern-js/builder-shared": "^2.7.0",
+    "webpack": "^5.75.0",
+    "vue-rsloader": "workspace:*"
+  },
+  "dependencies": {
+    "vue": "^3.2.47"
+  }
+}

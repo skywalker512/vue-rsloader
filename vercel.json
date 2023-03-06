@@ -1,0 +1,11 @@
+{
+  "buildCommand": "pnpm build",
+  "outputDirectory": "./example/modernjs-builder/dist",
+  "installCommand": "pnpm i",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/html/index/index.html"
+    }
+  ]
+}

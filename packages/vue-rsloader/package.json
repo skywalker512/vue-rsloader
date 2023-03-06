@@ -1,0 +1,43 @@
+{
+  "name": "vue-rsloader",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "skywalker512",
+  "repository": "skywalker512/vue-rsloader",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com/",
+    "access": "public"
+  },
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@types/webpack": "^4",
+    "chalk": "^4",
+    "loader-utils": "^2"
+  },
+  "peerDependenciesMeta": {
+    "@vue/compiler-sfc": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@rspack/core": "^0.0.24",
+    "@total-typescript/ts-reset": "^0.3.7",
+    "@types/hash-sum": "^1.0.0",
+    "@types/loader-utils": "^2.0.3",
+    "@types/node": "^18.14.6",
+    "hash-sum": "^2.0.0",
+    "typescript": "^4.9.5",
+    "vue": "^3.2.47"
+  }
+}
