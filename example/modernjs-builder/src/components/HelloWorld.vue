@@ -29,6 +29,9 @@ const count = ref(0)
     in your IDE for a better DX
   </p>
   <p class="read-the-docs">Click on the Rspack and Vue logos to learn more</p>
+  <a href="https://github.com/skywalker512/vue-rsloader" target="_blank">
+    Vue Rspack Loader Github
+  </a>
 </template>
 
 <style scoped>
