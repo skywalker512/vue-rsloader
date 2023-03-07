@@ -2,6 +2,10 @@ import { createBuilder } from '@modern-js/builder'
 import { builderRspackProvider } from '@modern-js/builder-rspack-provider'
 import { vuePlugin, vuePluginSvg } from './vue-builder-plugin.mjs'
 
+import Module from 'node:module'
+
+const require = Module.createRequire(import.meta.url)
+
 const provider = builderRspackProvider({
   builderConfig: {
     html: {
@@ -16,6 +20,13 @@ const provider = builderRspackProvider({
     },
     output: {
       svgDefaultExport: 'component',
+    },
+    tools: {
+      postcss: (_config, utils) => {
+        utils.addPlugins([
+          require('tailwindcss')({ config: './tailwind.config.js' }),
+        ])
+      },
     },
   },
 })

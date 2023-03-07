@@ -12,8 +12,9 @@
     "@modern-js/builder": "^2.7.0",
     "@modern-js/builder-rspack-provider": "^2.7.0",
     "@modern-js/builder-shared": "^2.7.0",
-    "webpack": "^5.75.0",
-    "vue-rsloader": "workspace:*"
+    "tailwindcss": "^3.2.7",
+    "vue-rsloader": "workspace:*",
+    "webpack": "^5.75.0"
   },
   "dependencies": {
     "vue": "^3.2.47"
