@@ -1,10 +1,10 @@
 import type { VueLoaderOptions } from './'
-// import type { RuleSetRule } from 'webpack'
 import type {
   RspackPluginInstance,
   Compiler,
   RuleSetRule,
   RuleSetUseItem,
+  RuleSetCondition,
 } from '@rspack/core'
 
 const NS = 'vue-rsloader'
@@ -229,9 +229,9 @@ function cloneRule(
   const isModule = isFileRegex && rawTest.source.includes('module')
   // 提取文件后缀
   const extRaw = isFileRegex
-    ? rawTest.source.slice(rawTest.source.lastIndexOf('.') + 1, -1)
+    ? rawTest.source.slice(rawTest.source.lastIndexOf('\\.') + 2, -1)
     : ''
-  const ext = /^[a-z]+$/i.test(extRaw) ? extRaw : parentExt
+  const ext = extRaw ? extRaw : parentExt
 
   const shouldClone =
     ext && (rawResourceQuery instanceof RegExp || rawResourceQuery == undefined)
@@ -256,13 +256,7 @@ function cloneRule(
     langExtRegex = new RegExp(`vue.*lang=${ext}`)
   }
   if (langExtRegex) {
-    if (rawResourceQuery instanceof RegExp) {
-      res.resourceQuery = {
-        and: [rawResourceQuery, langExtRegex],
-      }
-    } else {
-      res.resourceQuery = langExtRegex
-    }
+    res.resourceQuery = mergeRuleSetCondition(rawResourceQuery, langExtRegex)
     delete res.test
   }
 
@@ -287,18 +281,13 @@ function cloneRule(
       let resourceQuery = res.resourceQuery
       const inlineFlag = '&inline'
 
-      if (resourceQuery instanceof RegExp) {
-        resourceQuery = {
-          and: [resourceQuery, new RegExp(inlineFlag)],
-        }
-      } else if (resourceQuery == undefined) {
-        resourceQuery = new RegExp(inlineFlag)
-      }
-
       return [
         {
           ...res,
-          resourceQuery,
+          resourceQuery: mergeRuleSetCondition(
+            resourceQuery,
+            new RegExp(inlineFlag)
+          ),
           use: [{ loader: require.resolve('./styleInlineLoader') }, ...res.use],
           type: 'js',
         },
@@ -308,6 +297,13 @@ function cloneRule(
   }
 
   return [res]
+}
+
+function mergeRuleSetCondition(
+  conditions1: RuleSetCondition | undefined,
+  conditions2: RegExp
+): RuleSetCondition[] {
+  return [conditions1, conditions2].filter(Boolean)
 }
 
 export default VueLoaderPlugin

@@ -16,5 +16,6 @@
     "skipLibCheck": true,
     "lib": ["ESNext"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "references": [{ "path": "./tsconfig.test.json" }]
 }
