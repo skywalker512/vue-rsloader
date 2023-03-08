@@ -1,11 +1,3 @@
-import webpack = require('webpack')
-declare class VueLoaderPlugin implements webpack.Plugin {
-  static NS: string
-  apply(compiler: webpack.Compiler): void
-}
+import VueLoaderPlugin from './pluginRspack'
 
-let Plugin: typeof VueLoaderPlugin
-
-Plugin = require('./pluginRspack').default
-
-export default Plugin
+export default VueLoaderPlugin
