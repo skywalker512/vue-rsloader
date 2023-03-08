@@ -1,6 +1,6 @@
 {
   "name": "vue-rsloader",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "author": "skywalker512",
   "repository": "skywalker512/vue-rsloader",
@@ -21,7 +21,8 @@
   "dependencies": {
     "@types/webpack": "^4",
     "chalk": "^4",
-    "loader-utils": "^2"
+    "loader-utils": "^2",
+    "hash-sum": "^2.0.0"
   },
   "peerDependenciesMeta": {
     "@vue/compiler-sfc": {
@@ -37,7 +38,6 @@
     "@types/hash-sum": "^1.0.0",
     "@types/loader-utils": "^2.0.3",
     "@types/node": "^18.14.6",
-    "hash-sum": "^2.0.0",
     "typescript": "^4.9.5",
     "vitest": "^0.28.5",
     "vue": "^3.2.47",

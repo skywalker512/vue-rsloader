@@ -233,10 +233,7 @@ function cloneRule(
     : ''
   const ext = extRaw ? extRaw : parentExt
 
-  const shouldClone =
-    ext && (rawResourceQuery instanceof RegExp || rawResourceQuery == undefined)
-
-  if (!shouldClone) {
+  if (!ext) {
     return
   }
 
