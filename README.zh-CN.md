@@ -59,6 +59,7 @@ module.exports = {
         use: [
           {
             loader: require.resolve('vue-rsloader'),
+            /** @type {import('vue-rsloader').VueLoaderOptions} */
             options: {
               // 在后文有 options 参考
             },
@@ -84,7 +85,7 @@ module.exports = {
 
 ```ts
 export interface VueLoaderOptions {
-  // https://babeljs.io/docs/en/next/babel-parser#plugins
+  /** https://babeljs.io/docs/en/next/babel-parser#plugins */
   babelParserPlugins?: SFCScriptCompileOptions['babelParserPlugins']
   /**
    * 配置要转换为资产URL导入的标签/属性，或者使用 “false” 完全禁用转换。
@@ -95,7 +96,7 @@ export interface VueLoaderOptions {
    * 使用自定义的 compiler-sfc 实例。可用于强制指定版本。
    */
   compiler?: TemplateCompiler
-  // 传递给 vue/compiler-sfc 的选项
+  /** 传递给 vue/compiler-sfc 的选项 */
   compilerOptions?: CompilerOptions
   /**
    * 启用Vue响应式转换（实验性）。

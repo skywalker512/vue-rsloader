@@ -59,6 +59,7 @@ module.exports = {
         use: [
           {
             loader: require.resolve('vue-rsloader'),
+            /** @type {import('vue-rsloader').VueLoaderOptions} */
             options: {
               // In the following text, it will be mentioned this
             },
@@ -85,7 +86,7 @@ module.exports = {
 
 ```ts
 export interface VueLoaderOptions {
-  // https://babeljs.io/docs/en/next/babel-parser#plugins
+  /** https://babeljs.io/docs/en/next/babel-parser#plugins */
   babelParserPlugins?: SFCScriptCompileOptions['babelParserPlugins']
   /**
    * Configure what tags/attributes to transform into asset url imports,
@@ -97,7 +98,7 @@ export interface VueLoaderOptions {
    * Use custom compiler-sfc instance. Can be used to force a specific version.
    */
   compiler?: TemplateCompiler
-  // options to pass on to vue/compiler-sfc
+  /** options to pass on to vue/compiler-sfc */
   compilerOptions?: CompilerOptions
   /**
    * Enable Vue reactivity transform (experimental).

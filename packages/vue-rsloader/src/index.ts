@@ -28,19 +28,68 @@ import { setDescriptor } from './descriptorCache'
 export { VueLoaderPlugin }
 
 export interface VueLoaderOptions {
-  // https://babeljs.io/docs/en/next/babel-parser#plugins
+  /** https://babeljs.io/docs/en/next/babel-parser#plugins */
   babelParserPlugins?: SFCScriptCompileOptions['babelParserPlugins']
+  /**
+   * Configure what tags/attributes to transform into asset url imports,
+   * or disable the transform altogether with `false`.
+   * @default true
+   */
   transformAssetUrls?: SFCTemplateCompileOptions['transformAssetUrls']
-  compiler?: TemplateCompiler | string
+  /**
+   * Use custom compiler-sfc instance. Can be used to force a specific version.
+   */
+  compiler?: TemplateCompiler
+  /** options to pass on to vue/compiler-sfc */
   compilerOptions?: CompilerOptions
+  /**
+   * Enable Vue reactivity transform (experimental).
+   * https://vuejs.org/guide/extras/reactivity-transform.html
+   * - `true`: transform will be enabled for all vue [js(x),ts(x) wip] files except
+   *           those inside node_modules
+   * - `false`: disable in all cases
+   *
+   * @default false
+   */
   reactivityTransform?: boolean
+  /**
+   * Transform Vue SFCs into custom elements.
+   * - `true`: all `*.vue` imports are converted into custom elements
+   * - `RegExp`: matched files are converted into custom elements
+   *
+   * @default /\.ce\.vue$/
+   */
   customElement?: boolean | RegExp
 
+  /**
+   * @default: true in development mode, false in production mode or when the rspack config has target: 'node'.
+   * allowed value: false (true will not force Hot Reload neither in production mode nor when target: 'node')
+   *  Whether to use webpack Hot Module Replacement to apply changes in the browser without reloading the page. Use this
+   * option (value false) to disable the Hot Reload feature in development mode.
+   */
   hotReload?: boolean
+  /**
+   * In non-production environments, vue-loader injects a __file property to components for better debugging experience. If the
+   * name property is missing in a component, Vue will infer it from the __file field to display in console warnings.
+   * This property is stripped in production builds by default. But you may want to retain it if you are developing a component
+   * library and don't want to bother specifying name in each component. Then you can turn this option on.
+   * @default false
+   */
   exposeFilename?: boolean
+  /**
+   * not use
+   */
   appendExtension?: boolean
+  /**
+   * Indicates that transforms and codegen should try to output valid TS code
+   * @default: when lang=tsx? is true, other situations are false
+   */
   enableTsInTemplate?: boolean
 
+  /**
+   * templateOptions.ssr
+   * @default false
+   */
   isServerBuild?: boolean
 }
 
