@@ -1,11 +1,17 @@
 {
   "name": "vue-rsloader",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "license": "MIT",
   "author": "skywalker512",
   "repository": "skywalker512/vue-rsloader",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "keywords": [
+    "vue",
+    "rspack",
+    "rspack loader",
+    "vue rspack loader"
+  ],
   "files": [
     "dist"
   ],
