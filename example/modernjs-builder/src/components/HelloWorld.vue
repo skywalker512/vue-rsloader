@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { MDXProvider } from '@mdx-js/vue'
+import Post from './readme.md'
 
 defineProps<{ msg: string }>()
 
@@ -17,21 +19,14 @@ const count = ref(0)
     </p>
   </div>
 
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
-      >create-vue</a
-    >, the official Vue + Vite starter
-  </p>
-  <p>
-    Install
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-    in your IDE for a better DX
-  </p>
-  <p class="read-the-docs">Click on the Rspack and Vue logos to learn more</p>
   <a href="https://github.com/skywalker512/vue-rsloader" target="_blank">
     Vue Rspack Loader Github
   </a>
+  <div class="text-left">
+    <MDXProvider>
+      <Post />
+    </MDXProvider>
+  </div>
 </template>
 
 <style scoped>

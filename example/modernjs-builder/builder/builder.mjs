@@ -3,6 +3,8 @@ import { builderRspackProvider } from '@modern-js/builder-rspack-provider'
 import { vuePlugin, vuePluginSvg } from './vue-builder-plugin.mjs'
 
 import Module from 'node:module'
+import { vueMdxPlugin } from './mdx.mjs'
+import { vueJsxPlugin } from './jsx.mjs'
 
 const require = Module.createRequire(import.meta.url)
 
@@ -38,7 +40,12 @@ const builder = await createBuilder(provider, {
 })
 
 builder.removePlugins(['builder-plugin-react'])
-builder.addPlugins([vuePlugin(), vuePluginSvg()])
+builder.addPlugins([
+  vuePlugin(),
+  vuePluginSvg(),
+  vueJsxPlugin(),
+  vueMdxPlugin(),
+])
 
 if (process.argv[2] === 'build') {
   await builder.build()
