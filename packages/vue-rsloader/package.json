@@ -1,6 +1,6 @@
 {
   "name": "vue-rsloader",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "author": "skywalker512",
   "repository": "skywalker512/vue-rsloader",
@@ -16,7 +16,7 @@
     "dist"
   ],
   "publishConfig": {
-    "registry": "https://registry.npmjs.com/",
+    "registry": "https://registry.npmjs.org/",
     "access": "public"
   },
   "scripts": {

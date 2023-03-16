@@ -299,8 +299,8 @@ function cloneRule(
 function mergeRuleSetCondition(
   conditions1: RuleSetCondition | undefined,
   conditions2: RegExp
-): RuleSetCondition[] {
-  return [conditions1, conditions2].filter(Boolean)
+): RuleSetCondition {
+  return { and: [conditions1, conditions2].filter(Boolean) }
 }
 
 export default VueLoaderPlugin
