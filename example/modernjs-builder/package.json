@@ -9,18 +9,18 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.21.0",
+    "@babel/core": "^7.21.3",
     "@babel/preset-typescript": "^7.21.0",
     "@mdx-js/loader": "^2.3.0",
-    "@modern-js/builder": "^2.7.0",
-    "@modern-js/builder-rspack-provider": "^2.7.0",
-    "@modern-js/builder-shared": "^2.7.0",
+    "@modern-js/builder": "^2.9.0",
+    "@modern-js/builder-rspack-provider": "^2.9.0",
+    "@modern-js/builder-shared": "^2.9.0",
     "@vue/babel-plugin-jsx": "^1.1.1",
     "babel-loader": "^9.1.2",
+    "rehype-highlight": "^6.0.0",
     "tailwindcss": "^3.2.7",
     "vue-rsloader": "workspace:*",
-    "webpack": "^5.76.0",
-    "rehype-highlight": "^6.0.0"
+    "webpack": "^5.76.2"
   },
   "dependencies": {
     "@mdx-js/vue": "^2.3.0",
